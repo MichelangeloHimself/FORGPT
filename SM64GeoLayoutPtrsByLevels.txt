@@ -1,0 +1,1764 @@
+SM64 Geometry Layout Pointer List Sorted By Level, by VL-Tone (c) 2007. starxon (at) gmail (dot) com
+http://homepage.mac.com/qubedstudios/
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Note: I don't mind
+that people use this data to build their own level editor, but please credit me, and ideally contact me to tell me that you used it.
+
+This is a preliminary list of 3d objects available for each level
+in Super Mario 64. It covers almost all possible 3d objects in the game as defined by 0x22 and 0x21 commands.
+
+The 0x22 command assigns an object ID number to a pointer to Geometry Layout commands
+that themselves point to Polygon commands. The 0x21 command on the other hand assigns an object ID to a Polygon data pointer directly.
+
+So what this list provides is pointers to Geometry Layout data,
+sorted by levels to give you an idea of what objects are available to which level. 
+
+Future versions of TT64 will enable you to change which bank and objects are available to each level, but this
+feature won't be in the first released version. I made a special case in this list for objects defined by the 0x21 command, those have a "*" before their offset pointer, because in their case the
+pointer provided actually points to the 0x21 command itself. This is how TT64 handles these commands internally (0x21 commands are treated both as a Level Script command and a special case Geometry
+Layout command.)
+
+Here's a description of the Geometry Data Bank layouts Headers:
+
+LevelBank: is the Bank number used by a specific level, as defined by the 0x17, 0x18 and 0x1A commands.
+
+ROMBank: is
+a number assigned internally by Toad's Tool 64 to uniquely identify banks.
+
+You can refer to the http://homepage.mac.com/qubedstudios/TT64ROMBanks.txt document to have a list of all banks and their
+unique numbers, as used internally by TT64.
+
+ROM Address: Is the start and end address of this Geometry Layout data in the ROM.
+
+When you see "Level Bank" after the ROM Address, it means that these
+Geometry Layout commands are found in the same Bank as the Level Layout Script. This also mean that these objects are bound to be used in this level only as they refer to polygons found in the main
+level polygon bank. 
+
+The "Offset" column contains the pointer to the Geometry Layout commands. Just add to the start address to find the actual ROM address.
+
+The "Obj" column contains the level
+specific object ID number assigned by the 0x22 (or 0x21) command. This is the number used by the 0x24 command to place objects in the level, and it's also used indirectly by the 0x42 and 0x43
+commands.
+
+The "Description" is well a description of the referred object... These are not final, there may be some mistakes here and there. TT64 will feature these, but also descriptions for
+object/behavior "combos".
+
+These first three objects banks in this list are shared and available to all levels.
+
+Note that ROMBank 019 is available to almost all levels except all three Bowser
+battles, and inside the castle.
+
+==========Shared Geometry Layout Banks==========
+
+LevelBank:021 ROMBank:134 ROM Address:2800800-2803376 
+----------------------------------------------------------------
+ Offset Obj Description
+*000160 164 Small Reddish Particle
+*000232 159 Dirt Particle
+*000256 161 Snowy Particle
+*000280 158 Snow Ball
+*001704 132 [!]
+*001728 218 Metal Box 2
+*001752 201 Closed Cannon Trap Door
+
+LevelBank:022 ROMBank:020 ROM Address:2198944-2203136 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 142 Water Mist
+ 000032 224 White Puff
+ 000064 205 Explosion
+ 000168 187 Butterfly
+ 000316 116 Yellow Coin
+ 000416 117 Red Coin
+ 000512 118 Blue Coin
+ 000612 119 Some Coin
+ 000708 215 Red Coin
+ 000808 216 Coin
+ 001824  29 Haunted Door
+ 002692 204 Bowser Key 2
+ 002736 200 Bowser Key
+ 002832 203 Unknown???
+ 002860 144 Red Flame
+ 002956 145 Blue Flame
+ 003052 186 Fish 2
+ 003140 185 Fish
+ 003212 162 Leaves
+ 003236 136 Mario's Cap
+ 003236 136 Mario's Cap
+ 003312 134 Mario's Metal Cap
+ 003388 135 Mario's Winged Cap
+ 003496 133 Mario's Winged Metal Cap
+ 003604 219 Number
+ 003716 212 1-Up Mushroom
+ 003744 122 Star
+ 003796 138 Dirt Animation
+ 003876 139 Cartoon Star
+ 003948 121 Transparent Star
+ 003992 160 Snow Ball 2
+ 004020 124 Wooden Signpost
+
+LevelBank:023 ROMBank:001 ROM Address:1210800-1222624 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 168 Bubble
+ 000028 170 Purple Marble
+ 000056 150 Smoke
+ 000132 148 Dirt 2
+ 000132 156 Dirt 2
+ 000156 165 Spot On Ground
+ 000292 166 Water Waves 2
+ 000360 163 Water Waves
+ 000444 149 Sparkles
+ 000560 167 Water Splash
+ 000644 143 Sparkles Animation
+ 011732   1 Mario
+
+==========Geometry Layout Banks Sorted By Level==========
+
+>>>>>>>>>>>>>>Level: 1  Haunted House
+
+LevelBank:012 ROMBank:010 ROM Address:1496512-1497200 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  88 Bookend Part
+ 000192  89 Bookend
+ 000216  86 Haunted Chair
+ 000392  85 Small Key
+ 000436  87 Mad Piano
+ 000548  84 Boo
+ 000628  90 Haunted Cage
+
+LevelBank:013 ROMBank:018 ROM Address:2038576-2040320 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 103 Flat Square???
+ 000028 102 Mr. I
+ 000220 100 Bat (Swoop)
+ 000416 206 Snufit
+ 000560 104 Dorrie
+ 000916 101 Scutlebug
+
+LevelBank:114 ROMBank:022 ROM Address:3680448-3684688 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001456  53 Haunted Staircase Part
+ 001480  54 Floor Part
+ 001504  55 Tumbling Bridge
+ 001528  56 Tumbling Bridge Part
+ 001552  57 Bookshelf
+ 001576  58 Grill Elevator
+ 001600  59 Merry-Go-Round
+ 001624  60 Coffin
+ 003840 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 2  Cool Cool Mountain
+
+LevelBank:006 ROMBank:070 ROM Address:10840372-10864556 
+----------------------------------------------------------------
+ Offset Obj Description
+ 014164 100 Small Chill Bully
+ 014452 101 Chill Bully
+
+LevelBank:012 ROMBank:008 ROM Address:1464032-1464912 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  84 Spindrift
+ 000260  87 Penguin
+ 000540  85 Mr. Blizzard
+ 000840  86 Invisible Snow?
+
+LevelBank:013 ROMBank:017 ROM Address:1998224-1998560 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000240 102 Moneybags
+
+LevelBank:114 ROMBank:023 ROM Address:3759248-3760960 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000992  54 Wooden Cablecar
+ 001024 210 Snowman's Bottom
+ 001052  55 Snowman's Head
+ 001084   3 Cabin With Chimney
+ 001132   4 Cabin
+ 001188   5 Snowman Base
+ 001228   6 Ice Column
+ 001268   7 Mountain Part
+ 001324 256 Main Level Geometry 1
+ 001528 512 Main Level Geometry 2
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 3  Inside Castle
+
+LevelBank:013 ROMBank:016 ROM Address:1985520-1987056 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 102 Lakitu
+ 000996 221 Toad
+ 001096 100 MIPS
+ 001456 101 Boo
+
+LevelBank:114 ROMBank:024 ROM Address:3993808-4001216 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 003840 208 Star Door Half
+ 003840 209 Star Door Half
+ 003840 213 Star Door Half
+ 003840 214 Star Door Half
+ 003864  53 Castle Floor Trap
+ 005120 256 Main Level Geometry 1
+ 005400  57 Pendulum
+ 005424  55 Clock Big Arm
+ 005448  56 Clock Small Arm
+ 006232 512 Main Level Geometry 2
+ 006464  54 Brick Pillar
+ 007184 768 Main Level Geometry 3
+
+
+>>>>>>>>>>>>>>Level: 4  Hazy Maze Cave
+
+LevelBank:012 ROMBank:007 ROM Address:1442528-1443440 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  85 Monty Mole
+ 000272  86 Ukiki Monkey
+ 000876  87 Fwoosh
+
+LevelBank:013 ROMBank:018 ROM Address:2038576-2040320 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 103 Flat Square???
+ 000028 102 Mr. I
+ 000220 100 Bat (Swoop)
+ 000416 206 Snufit
+ 000560 104 Dorrie
+ 000916 101 Scutlebug
+
+LevelBank:114 ROMBank:025 ROM Address:4090368-4093616 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001328  60 Red Mesh Wall
+ 001352  57 Giant Boulder
+ 001392  58 Falling Rock
+ 001416  59 Small Rock
+ 001440  54 Metal Platform
+ 001464  55 Unknown
+ 001488  56 Yellow/Orange Elevator Platform
+ 002960 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 5  Shifting Sand Land
+
+LevelBank:005 ROMBank:059 ROM Address:9179532-9263068 
+----------------------------------------------------------------
+ Offset Obj Description
+ 083504  86 Tweester
+
+LevelBank:012 ROMBank:006 ROM Address:1383280-1384912 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  87 Klepto
+ 001448  88 Eyerock
+ 001508  89 Eyerock2
+ 001552  84 Pokey Head
+ 001604  85 Pokey Part
+
+LevelBank:114 ROMBank:026 ROM Address:4176272-4178608 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001472   3 Sand Pit
+ 001496   4 Sand Pit 2
+ 001560  58 Pyramid Top
+ 001584 199 Tox Box
+ 001608 256 Main Level Geometry 1
+ 001844  54 Grindel
+ 001892  55 Spindel
+ 001940  56 Pyramid Wall
+ 001964  57 Pyramid Elevator Cage
+ 001996 512 Main Level Geometry 2
+ 002188 768 Main Level Geometry 3
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 6  Bob-Omb's Battlefield
+
+LevelBank:012 ROMBank:004 ROM Address:1291728-1292560 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  86 King Bob-omb
+ 000776  84 Water Bubble
+ 000808  85 Unknown
+
+LevelBank:013 ROMBank:015 ROM Address:1932432-1934096 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 106 Koopa Flag
+ 000184 107 Wooden Log
+ 000208 191 Koopa
+ 000532 104 Koopa
+ 000856 100 Piranha Plant
+ 001152 103 Whomp
+ 001488 101 Metalic Ball
+ 001516 102 Chain Chomp
+
+LevelBank:114 ROMBank:027 ROM Address:4217440-4218800 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001088  54 Star Cage Bars
+ 001112  55 Wooden Bridge
+ 001136  56 Grills Door Half
+ 001160 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 7  Snow Man's land
+
+LevelBank:006 ROMBank:070 ROM Address:10840372-10864556 
+----------------------------------------------------------------
+ Offset Obj Description
+ 014164 100 Small Chill Bully
+ 014452 101 Chill Bully
+
+LevelBank:012 ROMBank:008 ROM Address:1464032-1464912 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  84 Spindrift
+ 000260  87 Penguin
+ 000540  85 Mr. Blizzard
+ 000840  86 Invisible Snow?
+
+LevelBank:013 ROMBank:017 ROM Address:1998224-1998560 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000240 102 Moneybags
+
+LevelBank:114 ROMBank:028 ROM Address:4253760-4255088 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000864  55 Ice Square
+ 000888  56 Small Triangle
+ 000912  54 Snow Wave
+ 000936 256 Main Level Geometry 1
+ 001156 512 Main Level Geometry 2
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 8  Wet Dry World
+
+LevelBank:012 ROMBank:002 ROM Address:1255504-1256544 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  85 Yellow Sphere
+ 000024  86 Hoot the Owl
+ 000484  87 Yoshi Egg
+ 000584  88 Thwomp
+ 000612  84 Bullet Bill
+ 000652  89 Heave-Ho
+
+LevelBank:013 ROMBank:014 ROM Address:1850800-1851952 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 105 Skeeter
+ 000644 193 Unknown
+ 000756 179 Bowser Bomb?
+ 000804 103 Fish
+ 000908 100 Chirp Chirp
+ 001044 104 Manta Ring
+ 001104 101 Treasure Chest Bottom
+ 001128 102 Treasure Chest Lid
+
+LevelBank:114 ROMBank:029 ROM Address:4300688-4302688 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001408  54 Wooden Platform
+ 001432  55 Arrow Lift Platform
+ 001472  56 Water Level Diamond
+ 001512  57 Square Wooden Platform
+ 001552  58 Wooden Platform Thing
+ 001576  59 Unknown
+ 001600  60 Hexagonal Platform
+ 001624 256 Main Level Geometry 1
+ 001828 512 Main Level Geometry 2
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 9  Jolly Roger Bay
+
+LevelBank:005 ROMBank:058 ROM Address:9065564-9146764 
+----------------------------------------------------------------
+ Offset Obj Description
+ 036116  84 Manta Ray
+
+LevelBank:012 ROMBank:005 ROM Address:1334288-1334928 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  88 Clam
+ 000104  86 Shark
+ 000268  85 Unagi
+
+LevelBank:013 ROMBank:014 ROM Address:1850800-1851952 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 105 Skeeter
+ 000644 193 Unknown
+ 000756 179 Bowser Bomb?
+ 000804 103 Fish
+ 000908 100 Chirp Chirp
+ 001044 104 Manta Ring
+ 001104 101 Treasure Chest Bottom
+ 001128 102 Treasure Chest Lid
+
+LevelBank:114 ROMBank:030 ROM Address:4340512-4343504 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 002304  61 Pillar (Stalagtite)
+ 002328  62 Pillar Base
+ 002352  59 Jolly Rock
+ 002376  63 Floating Bridge
+ 002400  60 Exploding Box
+ 002424  53 Sunken Ship Half
+ 002448  57 Sunken Ship
+ 002480  54 Ship Back Left
+ 002504  58 Sunken Ship Back
+ 002536  55 Ship Side
+ 002560  56 Ship Back
+ 002584 256 Main Level Geometry 1
+ 002812 512 Main Level Geometry 2
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 10  Tiny Huge Island
+
+LevelBank:005 ROMBank:065 ROM Address:9830916-9924804 
+----------------------------------------------------------------
+ Offset Obj Description
+ 051064  88 Wiggler Part
+
+LevelBank:012 ROMBank:012 ROM Address:1605536-1606720 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  89 Bubba
+ 000048  87 Wiggler
+ 000444  84 Lakitu
+ 000656  85 Spinny Ball
+ 000808  86 Spinny
+
+LevelBank:013 ROMBank:015 ROM Address:1932432-1934096 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 106 Koopa Flag
+ 000184 107 Wooden Log
+ 000208 191 Koopa
+ 000532 104 Koopa
+ 000856 100 Piranha Plant
+ 001152 103 Whomp
+ 001488 101 Metalic Ball
+ 001516 102 Chain Chomp
+
+LevelBank:114 ROMBank:031 ROM Address:4376288-4378400 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001456  54 Tiny Huge Island Top
+ 001480  55 Tiny Island Top
+ 001520   3 Grassy Island
+ 001544 256 Main Level Geometry 1
+ 001748 512 Main Level Geometry 2
+ 001948 768 Main Level Geometry 3
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 11  Tick Tock Clock
+
+LevelBank:012 ROMBank:002 ROM Address:1255504-1256544 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  85 Yellow Sphere
+ 000024  86 Hoot the Owl
+ 000484  87 Yoshi Egg
+ 000584  88 Thwomp
+ 000612  84 Bullet Bill
+ 000652  89 Heave-Ho
+
+LevelBank:114 ROMBank:032 ROM Address:4420608-4421744 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000576  54 Clock Cube
+ 000600  55 Clock Prism
+ 000624  56 Clock Pendulum
+ 000648  57 Clock Metal Platform
+ 000680  58 Clock Small Metal Platform
+ 000712  59 Square Prism Platform
+ 000736  60 Hexagonal Gear Platform
+ 000760  61 Triangular Clock Gear
+ 000784  62 Clock Box
+ 000808  63 Clock Box 2
+ 000832  64 Clock Platform
+ 000856  65 Clock Big Arm
+ 000880  66 Clockwork Gear Platform
+ 000904  67 Small Gear
+ 000928  68 Big Gear
+ 000952 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 12  Rainbow Ride
+
+LevelBank:005 ROMBank:065 ROM Address:9830916-9924804 
+----------------------------------------------------------------
+ Offset Obj Description
+ 051064  88 Wiggler Part
+
+LevelBank:012 ROMBank:012 ROM Address:1605536-1606720 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  89 Bubba
+ 000048  87 Wiggler
+ 000444  84 Lakitu
+ 000656  85 Spinny Ball
+ 000808  86 Spinny
+
+LevelBank:114 ROMBank:033 ROM Address:4497728-4500416 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001632   3 Multiple Platforms 1
+ 001656   4 Wooden Boards platform
+ 001680   5 Platforms 2
+ 001704   6 Some Platforms 3
+ 001728   7 Multiple Platforms 2
+ 001752   8 Big Long Rocky Platform
+ 001776   9 Some Platforms 2
+ 001800  10 Vertical Maze
+ 001824  11 Some Platforms
+ 001848  12 Flying Ship
+ 001880  13 Observation Platform
+ 001904  14 Rainbow Ring
+ 001928  15 Castle in the Sky
+ 001952  16 Multiple Platforms 3
+ 001976  17 Octogonal Platform & Pole
+ 002000  18 Platforms
+ 002024  19 Rainbow Path
+ 002048  20 Rainbow Path Part (Spiral)
+ 002072  21 Rainbow Path Part (Ice Blocks)
+ 002096  22 Wooden Boards Platforms
+ 002120  55 Flying Carpet
+ 002144  62 Pendulum Platform
+ 002168  57 Rainbow Platform
+ 002192  59 Wing
+ 002216  56 Octogonal Platform
+ 002240  54 Concrete Platform
+ 002264  58 Inverted Pyramid Platform
+ 002288  64 Platform
+ 002312  60 Rectangular Platform
+ 002336  63 Half-Cylinder Platform
+ 002368  61 L-Shaped Platform
+ 002392  65 Pyramidal Platforms Assembly
+ 002416  66 Pyramidal Platforms Anim 1
+ 002440  67 Pyramidal Platforms Anim 2
+ 002464  68 Pyramidal Platforms Anim 3
+ 002488  69 Pyramidal Platforms Anim 4
+ 002512 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 13  Castle Grounds
+
+LevelBank:012 ROMBank:011 ROM Address:1574208-1575856 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  84 Birds
+ 001040 222 Peach
+ 001128  85 Yoshi
+
+LevelBank:013 ROMBank:016 ROM Address:1985520-1987056 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 102 Lakitu
+ 000996 221 Toad
+ 001096 100 MIPS
+ 001456 101 Boo
+
+LevelBank:114 ROMBank:034 ROM Address:4539872-4541952 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001632  55 Castle Flag
+ 001780   3 Castle Tower
+ 001804  54 Castle Moat Grills
+ 001828  56 Cannon Grills
+ 001852 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 14  Bowser 1 Course
+
+LevelBank:005 ROMBank:065 ROM Address:9830916-9924804 
+----------------------------------------------------------------
+ Offset Obj Description
+ 051064  88 Wiggler Part
+
+LevelBank:012 ROMBank:012 ROM Address:1605536-1606720 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  89 Bubba
+ 000048  87 Wiggler
+ 000444  84 Lakitu
+ 000656  85 Spinny Ball
+ 000808  86 Spinny
+
+LevelBank:013 ROMBank:018 ROM Address:2038576-2040320 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 103 Flat Square???
+ 000028 102 Mr. I
+ 000220 100 Bat (Swoop)
+ 000416 206 Snufit
+ 000560 104 Dorrie
+ 000916 101 Scutlebug
+
+LevelBank:114 ROMBank:035 ROM Address:4570976-4572672 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000960   3 Start Platform
+ 000984   4 Large Platform
+ 001008   5 Wooden Bridge & Fences
+ 001032   6 Quartzy Path 1
+ 001056   7 Quartzy Path 2
+ 001080   8 Quartzy Path Fences 1
+ 001104   9 Octogonal Big Platform
+ 001128  10 Platform with Hill
+ 001152  11 Wooden Octogonal Platform
+ 001176  12 Patforms for bascules
+ 001200  13 Platforms for bascules 2
+ 001224  14 Quartz Crystal
+ 001248  15 Staircase Slope & Pipe Platform
+ 001272  16 Track for Platforms
+ 001296  17 Narrow Path Platform
+ 001320  56 Concrete Platform
+ 001344  55 Wooden Bascule Platform
+ 001368  54 Pyramid Platform
+ 001392  57 Ferris Wheel Platforms
+ 001416  58 Platform for Ferris Wheel
+ 001440  59 Magic Staircase Anim 1
+ 001464  60 Magic Staircase Anim 2
+ 001488  61 Magic Staircase Anim 3
+ 001512  62 Magic Staircase Anim 4
+ 001536  63 Magic Staircase
+ 001560 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 15  Vanish Cap
+
+LevelBank:012 ROMBank:009 ROM Address:1469392-1469536 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000072  85 Cap Switch
+
+LevelBank:114 ROMBank:036 ROM Address:4592160-4592848 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000496  54 Wood Platform
+ 000520 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 16  Bowser's Fire Sea
+
+LevelBank:012 ROMBank:003 ROM Address:1264240-1264928 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  86 Small Bully
+ 000288  87 Big Bully
+ 000576  84 Beta Blargg
+
+LevelBank:013 ROMBank:018 ROM Address:2038576-2040320 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 103 Flat Square???
+ 000028 102 Mr. I
+ 000220 100 Bat (Swoop)
+ 000416 206 Snufit
+ 000560 104 Dorrie
+ 000916 101 Scutlebug
+
+LevelBank:114 ROMBank:038 ROM Address:4630592-4632720 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001200   3 Platform and Cage Track
+ 001224   4 Two Columns
+ 001248   5 Cage Track
+ 001272   6 Large Lava Platform
+ 001296   7 Wire Mesh Platform
+ 001320   8 Multiple Platforms and Pole
+ 001344   9 Mesh and Cage
+ 001368  10 Large Lava Platform with Hole
+ 001392  11 Small Platform
+ 001416  12 Platform Assembly
+ 001440  13 Wire Meshes
+ 001464  14 Octo Platform
+ 001488  15 Large Rocky Path
+ 001512  16 Small Mesh Hill Bridge
+ 001536  17 Brick Wall With Platforms
+ 001560  18 Some Meshes
+ 001584  19 Warp Cone
+ 001608  20 Flat Star
+ 001632  21 Other Large Lava Platform
+ 001656  59 Mesh Cage Elevator
+ 001680  58 Cage Platform 2
+ 001704  57 Unknown
+ 001728  55 Inverted Pyramid
+ 001752  64 Tumbling Bridge Part
+ 001776  65 Bridge
+ 001800  60 Squishable Platform Assembly
+ 001832  62 Pyramidal Lava Platform
+ 001856  63 Rainbowish Platform
+ 001880  54 Cage Platform for Track
+ 001904  56 Sinking Platforms
+ 001928  61 Rocky Platform
+ 001952 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 17  Secret Aquarium
+
+LevelBank:005 ROMBank:058 ROM Address:9065564-9146764 
+----------------------------------------------------------------
+ Offset Obj Description
+ 036116  84 Manta Ray
+
+LevelBank:012 ROMBank:005 ROM Address:1334288-1334928 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  88 Clam
+ 000104  86 Shark
+ 000268  85 Unagi
+
+LevelBank:013 ROMBank:014 ROM Address:1850800-1851952 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 105 Skeeter
+ 000644 193 Unknown
+ 000756 179 Bowser Bomb?
+ 000804 103 Fish
+ 000908 100 Chirp Chirp
+ 001044 104 Manta Ring
+ 001104 101 Treasure Chest Bottom
+ 001128 102 Treasure Chest Lid
+
+LevelBank:114 ROMBank:039 ROM Address:4637088-4637600 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000368 256 Main Level Geometry 1
+
+
+>>>>>>>>>>>>>>Level: 18  Bowser 3 Course
+
+LevelBank:013 ROMBank:015 ROM Address:1932432-1934096 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 106 Koopa Flag
+ 000184 107 Wooden Log
+ 000208 191 Koopa
+ 000532 104 Koopa
+ 000856 100 Piranha Plant
+ 001152 103 Whomp
+ 001488 101 Metalic Ball
+ 001516 102 Chain Chomp
+
+LevelBank:114 ROMBank:040 ROM Address:4685056-4687008 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001072   3 Arrow Platform & Others
+ 001096   4 Long Platform
+ 001120   5 Walkable Steep Hill & Platform
+ 001144   6 Platform Path
+ 001168   7 Fences
+ 001192   8 Rectangular Platform
+ 001216   9 Platform Assembly
+ 001240  10 Platform Assembly Fences
+ 001264  11 Rocky Platform Path
+ 001288  12 Rubbery Platform Path Loop
+ 001312  13 Other Rectangular Platform
+ 001336  14 Mesh Platform
+ 001360  15 Small Platforms Group
+ 001384  16 Foundation for Rainbow Staircase
+ 001408  17 Track For Platform
+ 001432  18 Pole & Spike
+ 001456  19 Rocky Platform Path 2
+ 001480  20 Final Platform For Pipe
+ 001504  54 Small Concrete Platform
+ 001528  55 Platform with gradient
+ 001552  57 Octogonal Platform
+ 001576  60 Checkerboard Platform
+ 001600  61 Ferris Wheel Platforms
+ 001624  62 Platform for Track with Arrow
+ 001648  63 Large Wooden Platform
+ 001672  64 W-Shaped Platform
+ 001696  65 Rainbow Staircase 0
+ 001720  66 Rainbow Staircase 1
+ 001744  67 Rainbow Staircase 2
+ 001768  68 Rainbow Staircase 3
+ 001792  69 Rainbow Staircase 4
+ 001816 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 19  Lethal Lava Land
+
+LevelBank:012 ROMBank:003 ROM Address:1264240-1264928 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  86 Small Bully
+ 000288  87 Big Bully
+ 000576  84 Beta Blargg
+
+LevelBank:013 ROMBank:018 ROM Address:2038576-2040320 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 103 Flat Square???
+ 000028 102 Mr. I
+ 000220 100 Bat (Swoop)
+ 000416 206 Snufit
+ 000560 104 Dorrie
+ 000916 101 Scutlebug
+
+LevelBank:114 ROMBank:041 ROM Address:4770224-4774192 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 002528   3 Octo-Rectangular Lava Platform
+ 002552   4 W-Shaped Lava Platform
+ 002576   5 Octogonal Lava Platform
+ 002600   6 Platform for Tilting Bridge
+ 002624   7 Cage Platform for Tilting Bridge
+ 002656   8 Rectangular Long Lava Platform
+ 002680   9 Hexa Platform
+ 002704  10 Volcano
+ 002728  11 Platform with Archway
+ 002752  12 Platform with Arrows
+ 002776  13 Pyro Box
+ 002800  14 Hexagonal Mesh Platform
+ 002824  54 Hexagonal Mesh Platform
+ 002848  56 Bascule Bridge
+ 002872  58 Hexagonal Block
+ 002896  53 Wooden Bridge Part
+ 002920  59 Floating Wooden Bridge
+ 002944  60 Arrow Staircase Part
+ 002968  61 Arrow Staircase Platform
+ 002992  62 Hexagonal Ring Platform
+ 003016  63 Long Sinking Platform
+ 003040  64 Squarish Lava Platform
+ 003064  65 Small Pyramidal Lava Platform
+ 003088  67 Bowser Puzzle Piece 1
+ 003120  68 Bowser Puzzle Piece 2
+ 003152  69 Bowser Puzzle Piece 3
+ 003184  70 Bowser Puzzle Piece 4
+ 003216  71 Bowser Puzzle Piece 5
+ 003248  72 Bowser Puzzle Piece 6
+ 003280  73 Bowser Puzzle Piece 7
+ 003312  74 Bowser Puzzle Piece 8
+ 003344  75 Bowser Puzzle Piece 9
+ 003376  76 Bowser Puzzle Piece 10
+ 003408  77 Bowser Puzzle Piece 11
+ 003440  78 Bowser Puzzle Piece 12
+ 003472  79 Bowser Puzzle Piece 13
+ 003504  80 Bowser Puzzle Piece 14
+ 003536  55 Lava Rock Platform
+ 003560  57 Giant Log
+ 003584 256 Main Level Geometry 1
+ 003752  83 Hill & Wall?
+ 003776 512 Main Level Geometry 2
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 20  Dire Dire Docks
+
+LevelBank:005 ROMBank:058 ROM Address:9065564-9146764 
+----------------------------------------------------------------
+ Offset Obj Description
+ 036116  84 Manta Ray
+
+LevelBank:012 ROMBank:005 ROM Address:1334288-1334928 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  88 Clam
+ 000104  86 Shark
+ 000268  85 Unagi
+
+LevelBank:013 ROMBank:014 ROM Address:1850800-1851952 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 105 Skeeter
+ 000644 193 Unknown
+ 000756 179 Bowser Bomb?
+ 000804 103 Fish
+ 000908 100 Chirp Chirp
+ 001044 104 Manta Ring
+ 001104 101 Treasure Chest Bottom
+ 001128 102 Treasure Chest Lid
+
+LevelBank:114 ROMBank:042 ROM Address:4807264-4808848 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001104  56 Yellow Pole
+ 001144  54 Bowser Picture Door
+ 001184  55 Bowser's Sub
+ 001216 256 Main Level Geometry 1
+ 001392 512 Main Level Geometry 2
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 21  Whomp's Fortress
+
+LevelBank:012 ROMBank:002 ROM Address:1255504-1256544 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  85 Yellow Sphere
+ 000024  86 Hoot the Owl
+ 000484  87 Yoshi Egg
+ 000584  88 Thwomp
+ 000612  84 Bullet Bill
+ 000652  89 Heave-Ho
+
+LevelBank:013 ROMBank:015 ROM Address:1932432-1934096 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 106 Koopa Flag
+ 000184 107 Wooden Log
+ 000208 191 Koopa
+ 000532 104 Koopa
+ 000856 100 Piranha Plant
+ 001152 103 Whomp
+ 001488 101 Metalic Ball
+ 001516 102 Chain Chomp
+
+LevelBank:114 ROMBank:043 ROM Address:4840016-4843280 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 002016   3 Rocky Staircase
+ 002080   4 Big Staircase Level Part
+ 002144   5 Pillar Platform
+ 002168   6 Big Fence
+ 002192   7 Floating Brick Platform
+ 002216   8 Whomp's Tower
+ 002280   9 Bullet Bill Cannon
+ 002304  10 Level Part (slope)
+ 002368  12 Platform and Wooden Board Bridge
+ 002392  14 Grassy Level Part
+ 002464  15 Grass & Flowers
+ 002488  16 Round Grass Platform
+ 002512  17 Level Platform
+ 002536  18 Level Part
+ 002560 174 Rock Formation with eyes
+ 002624 177 Large Rock With Eyes
+ 002648 175 Clock-Like Rotating Bridge
+ 002712 173 Squarish Brick Platform
+ 002736 176 Unknown
+ 002760 178 Concrete Bridge (For Tumbling Behav)
+ 002784  13 Giant Pole
+ 002808  44 Whomp's Tower Platform 1
+ 002832  45 Whomp's Tower Platform 2
+ 002872  46 Whomp's Tower Platform 3
+ 002912  47 Whomp's Tower Platform 4
+ 002936  54 Breakable Wall Corner 1
+ 002960  55 Breakable Wall Corner 2
+ 002984  56 Giant Wooden Board
+ 003016  58 Giant Wooden Board 2
+ 003040  57 Tower Door
+ 003064 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+
+
+>>>>>>>>>>>>>>Level: 23  Castle Courtyard
+
+LevelBank:012 ROMBank:010 ROM Address:1496512-1497200 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  88 Bookend Part
+ 000192  89 Bookend
+ 000216  86 Haunted Chair
+ 000392  85 Small Key
+ 000436  87 Mad Piano
+ 000548  84 Boo
+ 000628  90 Haunted Cage
+
+LevelBank:114 ROMBank:045 ROM Address:4912752-4913456 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000512   3 Castle Courtyard Tower
+ 000536 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 24  Peach's Secret Slide
+
+LevelBank:012 ROMBank:009 ROM Address:1469392-1469536 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000072  85 Cap Switch
+
+LevelBank:114 ROMBank:046 ROM Address:4947728-4948176 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000256 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 25  Metal Cap
+
+LevelBank:012 ROMBank:009 ROM Address:1469392-1469536 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000072  85 Cap Switch
+
+LevelBank:013 ROMBank:018 ROM Address:2038576-2040320 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 103 Flat Square???
+ 000028 102 Mr. I
+ 000220 100 Bat (Swoop)
+ 000416 206 Snufit
+ 000560 104 Dorrie
+ 000916 101 Scutlebug
+
+LevelBank:114 ROMBank:047 ROM Address:4975072-4975664 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000416 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 26  Wing Cap
+
+LevelBank:012 ROMBank:009 ROM Address:1469392-1469536 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000072  85 Cap Switch
+
+LevelBank:114 ROMBank:048 ROM Address:4990720-4991264 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000352   3 Cloud
+ 000392 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 27  Bowser 1 Battle
+
+LevelBank:013 ROMBank:013 ROM Address:1806448-1809600 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 103 Bowser Flames
+ 000144 104 Invisible Bowser Accessory
+ 000176   3 Yellow Sphere (Bowser 1)
+ 002756 100 Bowser
+ 002880 105 Bowser 2
+ 003004 101 Bowser Bomb
+ 003004 179 Bowser Bomb
+ 003068 102 Bowser Clouds
+
+LevelBank:114 ROMBank:049 ROM Address:4997568-4997920 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000208 256 Main Level Geometry 1
+
+
+>>>>>>>>>>>>>>Level: 28  Rainbow Clouds Bonus
+
+LevelBank:012 ROMBank:003 ROM Address:1264240-1264928 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  86 Small Bully
+ 000288  87 Big Bully
+ 000576  84 Beta Blargg
+
+LevelBank:013 ROMBank:018 ROM Address:2038576-2040320 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 103 Flat Square???
+ 000028 102 Mr. I
+ 000220 100 Bat (Swoop)
+ 000416 206 Snufit
+ 000560 104 Dorrie
+ 000916 101 Scutlebug
+
+LevelBank:114 ROMBank:050 ROM Address:5036336-5037008 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000496 256 Main Level Geometry 1
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
+
+>>>>>>>>>>>>>>Level: 29  Bowser 2 Battle
+
+LevelBank:013 ROMBank:013 ROM Address:1806448-1809600 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 103 Bowser Flames
+ 000144 104 Invisible Bowser Accessory
+ 002756 100 Bowser
+ 002880 105 Bowser 2
+ 003004 101 Bowser Bomb
+ 003004 179 Bowser Bomb
+ 003068 102 Bowser Clouds
+
+LevelBank:114 ROMBank:051 ROM Address:5040624-5041152 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000368  54 Bowser's Lava Platform
+ 000392 256 Main Level Geometry 1
+
+
+>>>>>>>>>>>>>>Level: 30  Bowser 3 Battle
+
+LevelBank:013 ROMBank:013 ROM Address:1806448-1809600 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 103 Bowser Flames
+ 000144 104 Invisible Bowser Accessory
+ 002756 100 Bowser
+ 002880 105 Bowser 2
+ 003004 101 Bowser Bomb
+ 003004 179 Bowser Bomb
+ 003068 102 Bowser Clouds
+
+LevelBank:114 ROMBank:052 ROM Address:5051632-5052688 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 000656  54 Bowser Platform 1
+ 000680  55 Bowser Platform 2
+ 000704  56 Bowser Platform 3
+ 000728  57 Bowser Platform 4
+ 000752  58 Bowser Platform 5
+ 000776  59 Bowser Platform 6
+ 000800  60 Bowser Platform 7
+ 000824  61 Bowser Platform 8
+ 000848  62 Bowser Platform 9
+ 000872  63 Bowser Platform 10
+ 000896   3 Bowser Bomb Stand
+ 000920 256 Main Level Geometry 1
+
+
+>>>>>>>>>>>>>>Level: 31  Tall Tall Mountain
+
+LevelBank:012 ROMBank:007 ROM Address:1442528-1443440 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000  85 Monty Mole
+ 000272  86 Ukiki Monkey
+ 000876  87 Fwoosh
+
+LevelBank:114 ROMBank:053 ROM Address:5157360-5160960 Level Bank
+----------------------------------------------------------------
+ Offset Obj Description
+ 001808  54 Little Cage
+ 001840  53 Giant Wooden Log
+ 001864   3 Mushroom Platform
+ 001912   4 Big Mushroom Platform
+ 001960   5 Small Mushroom Platform
+ 002008   6 Mini Mushroom Platform
+ 002056   7 Mountain Part
+ 002096   8 Mountain Part 2
+ 002136   9 Cannon Hole
+ 002176  10 Mountain Bridge Part
+ 002216  11 Mountain Part 3
+ 002256  12 Mountain Part 5
+ 002296  13 Mountain Part 4
+ 002336  15 Mountain Part 6
+ 002376  16 Mountain Hole For Star
+ 002416  17 Mountain Summit
+ 002448  18 Vine Bridge
+ 002496  19 Mountain Part 7
+ 002544  20 Mountain Part 8
+ 002584  21 Mountain Part 9
+ 002624  22 Mountain Part 10
+ 002672 256 Main Level Geometry 1
+ 002908 512 Main Level Geometry 2
+ 003052 768 Main Level Geometry 3
+ 003204 1024 Main Level Geometry 4
+ 003348  55 Blue Smiley
+ 003404  56 Yellow Smiley
+ 003460  57 Star Smiley
+ 003516  58 Moon Smiley
+ 003572 123 Tall Tall Slide Exit Podium
+
+LevelBank:015 ROMBank:019 ROM Address:2099408-2102288 
+----------------------------------------------------------------
+ Offset Obj Description
+ 000000 140 Blue Coins Floor Switch
+ 000040 194 Amp
+ 000424 128 Cannon
+ 000448 127 Cannon Part
+ 000472 223 Chuckya
+ 001228 207 Purple Floor Switch
+ 001252 202 Checkerboard Elevator Platform
+ 001276 120 Heart
+ 001304 220 Fly Guy
+ 001488 129 Breakable Box
+ 001552 130 Box
+ 001600 180 Metal Ball
+ 001644 225 Metal Ball
+ 001684 137 [!] Box
+ 001764 192 Goomba
+ 001976 188 Bob-Omb
+ 002292 195 Pink Bob-Omb
+ 002608 217 Metal Box
+ 002648 131 Unavailable [!] Box
+ 002736 190 Koopa Shell
+
